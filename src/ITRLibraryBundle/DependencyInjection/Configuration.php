@@ -27,9 +27,11 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('bot_name')
                             ->defaultValue('LibraryBot')
                         ->end()
+
                         ->scalarNode('default_channel')
                             ->defaultValue('library')
                         ->end()
+
                         ->arrayNode('channel_tags')
                             ->prototype('array')
                                 ->children()
@@ -40,8 +42,24 @@ class Configuration implements ConfigurationInterface
                                 ->end()
                             ->end()
                         ->end()
+
+                        ->arrayNode('cmd')
+                            ->useAttributeAsKey('name')
+                            ->prototype('array')
+                                ->children()
+                                    ->scalarNode('token')
+                                        ->isRequired()
+                                        ->cannotBeEmpty()
+                                    ->end()
+                                    ->scalarNode('syntax')->end()
+                                    ->scalarNode('example')->end()
+                                ->end()
+                            ->end()
+                        ->end()
+
                     ->end()
-                ->end() // twitter
+                ->end() //slack
+
             ->end()
         ;
 

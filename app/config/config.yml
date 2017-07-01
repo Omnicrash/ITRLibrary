@@ -79,4 +79,8 @@ itr_library:
             - { channel: sylius, tags: [sylius]}
             - { channel: doctrine, tags: [doctrine]}
             - { channel: dotnet, tags: [dotnet]}
-
+        cmd:
+            post:
+              token: "%slack_cmd_token.post%"
+              syntax: '/library url ["title"] [tag1, tag2, ...]'
+              example: '/library www.intracto.com "Intracto Digital Agency" intracto, agency'
