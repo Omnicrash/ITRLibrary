@@ -17,3 +17,5 @@ services:
             - '%itr_library.slack%'
         tags:
             - { name: kernel.event_listener, event: post.post_create, method: sendSlackMessage }
+    itrlibrary.service.command:
+        class: ITRLibraryBundle\Service\CommandService
